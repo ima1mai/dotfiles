@@ -37,6 +37,7 @@ define_keymap(None, {
 define_keymap(re.compile('Pantheon-terminal'), {
     K('esc'): [K('left_alt'), K('esc')],
 	K("Alt-c"): K("C-Shift-c"),
-	K("Alt-v"): K("C-Shift-v")
+	K("Alt-v"): K("C-Shift-v"),
+	K("Alt-t"): K("C-Shift-t")
 }, "Esc and IME off for vim")
 
