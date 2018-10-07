@@ -14,7 +14,7 @@ Input Method Framework: fcitx、日本語入力メソッド: mozc で設定。
 
 インストール
 ```
-$ sudo apt-get install fcity-mozc
+$ sudo apt-get install fcitx-mozc
 ```
 
 Input Method Frameworkをfcitxにする。
