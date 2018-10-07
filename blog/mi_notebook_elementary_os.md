@@ -95,6 +95,12 @@ Mi Notebook AirにはNvidia GPU MX150が搭載されているので、どうせ�
 IntelのChipsetとGPUをHybridで使ってくれるようになるBumblebeeを導入してみる。
 Bumblebeeについては[ここ](https://wiki.archlinux.jp/index.php/Bumblebee)の説明が詳しい。
 
+```sh
+   19  sudo apt install bumblebee-nvidia nvidia-384
+   20  sudo apt install primus
+   21  sudo vim /etc/bumblebee/bumblebee.conf 
+```
+
 nvidia driverをクリーンインストール
 ```sh
 $ sudo apt --purge remove nvidia-*
