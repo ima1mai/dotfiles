@@ -18,7 +18,7 @@ define_multipurpose_modmap({
 	Key.CAPSLOCK: [Key.ESC, Key.LEFT_CTRL],
 })
 
-define_keymap(None, {
+define_keymap(lambda wm_class: wm_class not in ("Pantheon-terminal"), {
 	# Mac like settings
 	K("Alt-c"): K("C-c"),
 	K("Alt-v"): K("C-v"),
@@ -35,6 +35,8 @@ define_keymap(None, {
 }, "Vim-like cursor")
 
 define_keymap(re.compile('Pantheon-terminal'), {
-    K('esc'): [K('left_alt'), K('esc')]
+    K('esc'): [K('left_alt'), K('esc')],
+	K("Alt-c"): K("C-Shift-c"),
+	K("Alt-v"): K("C-Shift-v")
 }, "Esc and IME off for vim")
 
