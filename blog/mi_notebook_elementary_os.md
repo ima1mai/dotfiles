@@ -22,12 +22,9 @@ Input Method Frameworkをfcitxにする。
 $ im-config
 ```
 
+このあと、ログインし直さないと設定が適用されないようでした。
+
 その後、fcitxのInput MethodにMozcを追加するために、fcitx configurationを開きます。
-
-
-また、標準のmozcのiconだと大きくて上のツールバーが日本語に切り替えるたびに高さが変わるので目障りでした。
-[ここの記事](https://ivy-box.net/article/20150608.html)を参考にロゴの画像を変えて解決しました。
-
 
 ```sh
 $ fcitx-configtool
@@ -41,8 +38,9 @@ $ fcitx-configtool
 
 ![fcitx-im-switch](./img/im-switch.png)
 
+また、標準のmozcのiconだと大きくて上のツールバーが日本語に切り替えるたびに高さが変わるので目障りでした。
+[ここの記事](https://ivy-box.net/article/20150608.html)を参考にロゴの画像を変えて解決しました。
 
-このあと、ログインし直さないと設定が適用されないようでした。
 
 ## PPAを追加できるようにする
 
