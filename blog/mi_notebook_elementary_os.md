@@ -86,64 +86,17 @@ $ dconf-editor
 参照: https://elementaryos.stackexchange.com/questions/2059/how-can-i-disable-natural-copy-paste-in-terminal
 
 ### GPUを有効化
+
 Mi Notebook AirにはNvidia GPU MX150が搭載されているので、どうせなら活用したい。ということで、GPUを有効化して Intel ChipsetをGPUのHybrid利用されるようにしました。
 標準だと、ただHDMIに画面出力するような場合はIntel Chipsetが使われるようです。Intel Chipsetのみを使ったほうがバッテリーの持ちはいいそうです。
 
-#### Bumblebeeをインストール
-IntelのChipsetとGPUをHybridで使ってくれるようになるBumblebeeを導入してみる。
-Bumblebeeについては[ここ](https://wiki.archlinux.jp/index.php/Bumblebee)の説明が詳しい。
+IntelのChipsetとGPUの使い分けを可能にしてくれるBumblebeeをインストールしてみる。
+この設定には失敗してOS再インストールするはめになりました。。。
 
-```sh
-   19  sudo apt install bumblebee-nvidia nvidia-384
-   20  sudo apt install primus
-   21  sudo vim /etc/bumblebee/bumblebee.conf 
-```
+最終的に[ここ](https://elementaryos.stackexchange.com/questions/9803/using-intel-hd-graphics-nvidia-gpu-with-loki)の説明に従ってて最低限の設定はうまく行きました。
 
-nvidia driverをクリーンインストール
-```sh
-$ sudo apt --purge remove nvidia-*
-$ sudo apt --purge remove cuda-*
-$ sudo add-apt-repository ppa:graphics-drivers/ppa
-$ sudo apt-get update
-$ sudo apt dist-update
-$ sudo apt dist-upgrade 
-$ sudo apt install nvidia-390
-```
-
-Install Intel Xorg driver
-```
-$ sudo apt install xserver-xorg-core
-$ sudo apt-get install xserver-xorg-video-intel
-```
-
-`sudo apt install bumblebee`して足りないと言われたfirmwareをダウンロード。
-```
-$ sudo apt install bumblebee
-$ cd /tmp
-$ wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915/kbl_guc_ver9_14.bin
-$ wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915/bxt_guc_ver8_7.bin
-$ sudo cp ./kbl_guc_ver9_14.bin /lib/firmware/i915/
-$ sudo cp ./bxt_guc_ver8_7.bin /lib/firmware/i915/
-$ sudo update-initramfs -k $(uname -r) -u
-```
-
-bumblebeeをインストール
-```
-$ sudo apt remove bumblebee 
-$ sudo apt install bumblebee
-$ sudo apt update
-```
-
-nvidia driverを先ほどインストールした`nvidia-390`に変更
-```
-$ sudo vim /etc/bumblebee/bumblebee.conf 
-```
-
-テスト用のutililityをインストールして再起動
-```
-$ sudo apt install mesa-utils
-$ sudo reboot
-```
+現状では `nvidia-settings` を開いてPrimus Settingsから使うDeviceをIntelかNVIDIAか選択して、適用後はログインし直さなければならないという、めんどくさい手順を踏めばIntel ChipsetとGPUを切り替えられるようになりました。
+そもそも普通のDesktop PCではこんな切り替えは行わずGPUを使う場合はGPUのカードのポートから出力するようなものだと思うので、結構難しいんだなと思いました。
 
 参考:
 - https://wiki.archlinux.org/index.php/Bumblebee#Installation
@@ -193,7 +146,5 @@ $ sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 ## ToDo
 
-- Nvidia GPUが使われているか
-- Left-Alt x2 -> F10のmapping
 - Battery節約ツール
 
