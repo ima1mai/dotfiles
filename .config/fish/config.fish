@@ -17,3 +17,12 @@ set -g theme_display_k8s_context yes
 set -g theme_display_virtualenv yes
 
 set FZF_LEGACY_KEYBINDINGS 0
+
+#pyenv
+set -x PATH "/home/ryo/.pyenv/bin" $PATH
+status --is-interactive; and . (pyenv init -|psub)
+status --is-interactive; and . (pyenv virtualenv-init -|psub)
+
+#neovim
+set XDG_CONFIG_HOME $HOME"/.config"
+
