@@ -89,8 +89,8 @@ set wildmenu
 set wildignore=*.o,*.obj,*.pyc,*.so,*.dll
 
 let g:python_highlight_all = 1
-let g:python3_host_prog = '/Users/aa367037/.pyenv/versions/neovim3/bin/python'
-let g:python_host_prog = '/Users/aa367037/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '$HOME/.pyenv/versions/neovim3/bin/python'
+let g:python_host_prog = '$HOME/.pyenv/versions/neovim2/bin/python'
 
 " 補完時にpreviewを表示しない
 "set completeopt=menuone
