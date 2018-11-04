@@ -70,6 +70,10 @@ set showmatch
 "" ステータスラインを常に表示(0:表示しない、1:2つ以上ウィンドウがある時だけ表示)
 "set laststatus=2
 
+" swap colon and semicolon
+nnoremap ; :
+nnoremap : ;
+
 "タイトル表示"
 set title
 
