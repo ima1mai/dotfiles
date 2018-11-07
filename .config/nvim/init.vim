@@ -36,7 +36,8 @@ set termguicolors
 filetype plugin indent on
 syntax enable
 " colorscheme solarized8_dark_flat
-colorscheme tender
+" colorscheme tender
+colorscheme dracula
 set fileformats=unix,mac,dos
 
 " Messages in English
@@ -71,8 +72,9 @@ set showmatch
 "set laststatus=2
 
 " swap colon and semicolon
-nnoremap ; :
-nnoremap : ;
+" TODO: detect OS and enable if linux
+"nnoremap ; :
+"nnoremap : ;
 
 "タイトル表示"
 set title

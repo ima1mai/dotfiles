@@ -20,6 +20,8 @@ set SHELL (which fish)
 # Powerline
 set -g theme_display_k8s_context yes
 set -g theme_display_virtualenv yes
+set -g theme_color_scheme dracula
+set -g theme_project_dir_length 1
 
 # fzf
 set FZF_LEGACY_KEYBINDINGS 0
@@ -36,3 +38,11 @@ balias vi nvim
 #kubectl
 balias k 'kubectl'
 balias kube 'kubectl'
+balias stern 'stern --exclude DiscoveryClient --exclude logstash --exclude org.mongodb.driver.connection'
+
+#git
+balias gp 'git pull'
+balias gc 'git commit'
+balias ga 'git add .'
+balias gb 'git branch'
+balias gst 'git status'

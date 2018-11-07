@@ -12,6 +12,9 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'jacoborus/tender.vim'
 
+[[plugins]]
+repo = 'dracula/vim'
+
 # color scheme
 # [[plugins]]
 # repo = 'raphamorim/lucario'
@@ -59,9 +62,8 @@ nnoremap <C-e> :NERDTreeToggle<CR>
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-let g:lightline = { 'colorscheme': 'tender' }
 let g:lightline = {
-        \ 'colorscheme': 'tender',
+        \ 'colorscheme': 'Dracula',
         \ 'mode_map': {'c': 'NORMAL'},
         \ 'active': {
                 \  'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath'], ['gitbranch']],
@@ -214,3 +216,10 @@ hook_add = '''
   let g:AutoPairsShortcutBackInsert = '∫'
 '''
 
+# fish file highlight, autoindent, and so on 
+[[plugins]]
+repo = 'dag/vim-fish'
+
+# show indent line like VS Code 
+[[plugins]]
+repo = 'Yggdroot/indentLine'
