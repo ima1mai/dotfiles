@@ -72,9 +72,11 @@ set showmatch
 "set laststatus=2
 
 " swap colon and semicolon
-" TODO: detect OS and enable if linux
-"nnoremap ; :
-"nnoremap : ;
+let uname = systemlist('uname')
+if uname[0] == "Linux"
+    nnoremap ; :
+    nnoremap : ;
+endif
 
 "タイトル表示"
 set title
