@@ -73,9 +73,19 @@ let g:lightline = {
                 \},
         \ 'component_function': {
                 \   'gitbranch': 'fugitive#head',
-                \    'ale': 'ALEGetStatusLine'
+                \    'ale': 'ALEGetStatusLine',
+                \   'filetype': 'MyFiletype',
+                \   'fileformat': 'MyFileformat'
                 \ }
         \ }
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
 '''
 
 [[plugins]]
@@ -223,3 +233,7 @@ repo = 'dag/vim-fish'
 # show indent line like VS Code 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
+
+# dev icons 
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'

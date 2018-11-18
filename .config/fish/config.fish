@@ -46,3 +46,8 @@ balias gc 'git commit'
 balias ga 'git add .'
 balias gb 'git branch'
 balias gst 'git status'
+
+# colorls
+balias lc 'colorls -lA --sd'
+balias lct 'colorls --tree --git-status'
+balias cls 'colorls'
