@@ -52,6 +52,11 @@ nnoremap <silent> [fugitive]a :Gwrite<CR>
 nnoremap <silent> [fugitive]c :Gcommit<CR>
 '''
 
+# fugitive integration with hub
+# Use for GBrowse for now
+[[plugins]]
+repo = "tpope/vim-rhubarb"
+
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
@@ -237,3 +242,11 @@ repo = 'Yggdroot/indentLine'
 # dev icons 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+
+# enhance operations to text object
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+# enable repeat dot command for vim-surround operations
+[[plugins]]
+repo = 'tpope/vim-repeat'

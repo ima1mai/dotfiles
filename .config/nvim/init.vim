@@ -125,3 +125,10 @@ let g:vim_markdown_folding_disabled=0
 
 " fro webpack build
 set backupcopy=yes
+
+
+" local settings
+let g:local_settings_file = $XDG_CONFIG_HOME . '/nvim/local_settings.vim'
+if filereadable(g:local_settings_file)
+    exec "source " . local_settings_file
+endif

@@ -48,6 +48,7 @@ balias gb 'git branch'
 balias gst 'git status'
 
 # colorls
-balias lc 'colorls -lA --sd'
+balias lc 'colorls -lA --sd -t -r'
+balias lctr 'colorls -lA --sd'
 balias lct 'colorls --tree --git-status'
 balias cls 'colorls'
