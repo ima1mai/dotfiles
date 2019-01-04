@@ -119,6 +119,11 @@ nnoremap <C-]> g<C-]>
 nnoremap <Leader>p :bprevious<CR>
 nnoremap <Leader>n :bnext<CR>
 
+" shortcut for save and close
+nnoremap ,s :<C-u>w<CR>
+nnoremap ,w :<C-u>wq<CR>
+nnoremap ,q :<C-u>q<CR>
+
 " markdownの折りたたみなし
 let g:vim_markdown_folding_disabled=0
 
