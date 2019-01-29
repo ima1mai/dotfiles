@@ -41,7 +41,7 @@ colorscheme dracula
 set fileformats=unix,mac,dos
 
 " Messages in English
-language C
+" language C
 
 set smarttab
 "insert space when entered tab

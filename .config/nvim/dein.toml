@@ -280,3 +280,16 @@ let g:test#python#runner = 'nose'
 [[plugins]]
 repo = 'radenling/vim-dispatch-neovim'
 depends = ['vim-dispatch']
+
+# for grammar check by :GrammarousCheck command
+[[plugins]]
+repo = 'rhysd/vim-grammarous'
+
+# for opening URI in texts
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_add = '''
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+'''
