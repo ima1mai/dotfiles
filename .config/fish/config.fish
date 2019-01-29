@@ -5,15 +5,6 @@ if not functions -q fisher
     fish -c fisher
 end
 
-set -g fisher_path ~/.config/fisherman
-
-set fish_function_path $fish_function_path $fisher_path/functions
-set fish_complete_path $fish_complete_path $fisher_path/completions
-
-for file in $fisher_path/conf.d/*.fish
-    builtin source $file 2> /dev/null
-end
-
 #shell
 set SHELL (which fish)
 set -x LANG en_US.UTF-8 
@@ -54,8 +45,8 @@ balias lctr 'colorls -lA --sd'
 balias lct 'colorls --tree --git-status'
 balias cls 'colorls'
 
-#set -x XDG_CONFIG_HOME "~/.config"
-if test -f ~/.config/fish/config_local.fish
-    source ~/.config/fish/config_local.fish
+set -x XDG_CONFIG_HOME ~/.config
+set -q local_config; or set local_config $XDG_CONFIG_HOME/fish/config_local.fish
+if test -e $local_config
+    source $local_config
 end
-
