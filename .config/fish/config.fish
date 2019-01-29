@@ -1,5 +1,3 @@
-echo "reading config.fish"
-
 # fisherman settings
 if not functions -q fisher
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
@@ -56,7 +54,7 @@ balias lctr 'colorls -lA --sd'
 balias lct 'colorls --tree --git-status'
 balias cls 'colorls'
 
-set -x XDG_CONFIG_HOME "~/.config"
+#set -x XDG_CONFIG_HOME "~/.config"
 if test -f ~/.config/fish/config_local.fish
     source ~/.config/fish/config_local.fish
 end
