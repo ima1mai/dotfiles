@@ -11,16 +11,18 @@ set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8    
 
 # Powerline
-set -g theme_display_k8s_context yes
-set -g theme_display_virtualenv no
-set -g theme_color_scheme dracula
-set -g theme_project_dir_length 1
+#set -g theme_display_k8s_context yes
+#set -g theme_display_virtualenv no
+#set -g theme_color_scheme dracula
+#set -g theme_project_dir_length 1
 
 # fzf
 set FZF_LEGACY_KEYBINDINGS 0
 
 #pyenv
-#set -x PATH $HOME/".pyenv/bin" $PATH
+if test (uname) = "Linux"
+    set -x PATH $HOME/".pyenv/bin" $PATH
+end
 status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
