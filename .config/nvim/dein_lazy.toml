@@ -34,6 +34,11 @@ repo = 'Vimjas/vim-python-pep8-indent'
 on_i = 1
 on_ft = 'python'
 
+# python test result compiler for vim-dispatch
+[[plugins]]
+repo = 'aliev/vim-compiler-python'
+on_ft = 'python'
+
 # snippet
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -45,16 +50,26 @@ hook_source = '''
     set conceallevel=2 concealcursor=niv
   endif
 '''
+hook_post_source = '''
+  let g:neosnippet#snippets_directory='~/.cache/nvim/dein/repos/github.com/honza/vim-snippets/snippets'
+'''
 on_i  = 1
 on_ft = ['snippet']
-depends = ['neosnippet-snippets']
+depends = ['neosnippet-snippets','vim-snippets']
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'tpope/vim-markdown'
+repo = 'honza/vim-snippets'
+
+[[plugins]]
+repo = 'gabrielelana/vim-markdown'
 on_ft = 'markdown'
+hook_post_source = '''
+  let g:markdown_include_jekyll_support = 0
+  let g:markdown_mapping_switch_status='<Leader>m'
+'''
 
 [[plugins]]
 repo = 'mhartington/nvim-typescript'

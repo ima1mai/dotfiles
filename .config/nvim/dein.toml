@@ -37,7 +37,7 @@ tnoremap <silent> <ESC> <C-\><C-n> <C-w><C-k>
 nnoremap <silent> ,th :call neoterm#close()<cr>
 " clear terminal
 nnoremap <silent> ,tl :call neoterm#clear()<cr>
-nnoremap <silent> <Leader>t :T source $HOME/.bash_profile<CR>
+nnoremap <silent> ,tn :T source $HOME/.bash_profile<CR>
 '''
 
 [[plugins]]
@@ -51,6 +51,11 @@ nnoremap <silent> [fugitive]d :Gdiff<CR><C-w>L
 nnoremap <silent> [fugitive]a :Gwrite<CR>
 nnoremap <silent> [fugitive]c :Gcommit<CR>
 '''
+
+# fugitive integration with hub
+# Use for GBrowse for now
+[[plugins]]
+repo = "tpope/vim-rhubarb"
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -148,6 +153,9 @@ let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 " 編集中のlintはしない
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 1
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
 
 " lint結果をロケーションリストとQuickFixには表示しない
 let g:ale_set_loclist = 0
@@ -155,10 +163,17 @@ let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
 let g:ale_keep_list_window_open = 0
 
+" 行末尾にmessageが表示される
+let g:ale_virtualtext_cursor = 1
+
 " 有効にするlinter
 let g:ale_linters = {
-\   'python': ['pyflakes'],
+\   'python': ['flake8', 'mypy'],
 \   'javascript': ['eslint'],
+\}
+
+let g:ale_fixers = {
+\    'python': ['yapf']
 \}
 
 " disable java files linting
@@ -166,10 +181,10 @@ let g:ale_pattern_options = {'\.java$': {'ale_linters': [], 'ale_fixers': []}}
 
 " ALE用プレフィックス
 nmap [ale] <Nop>
-map <C-k> [ale]
+map <Leader>a [ale]
 " エラー行にジャンプ
-nmap <silent> [ale]<C-P> <Plug>(ale_previous)
-nmap <silent> [ale]<C-N> <Plug>(ale_next)
+nmap <silent> [ale]p <Plug>(ale_previous)
+nmap <silent> [ale]n <Plug>(ale_next)
 '''
 
 [[plugins]]
@@ -237,3 +252,48 @@ repo = 'Yggdroot/indentLine'
 # dev icons 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+
+# enhance operations to text object
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+# enable repeat dot command for vim-surround operations
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+# vim-dispatch executes exeternal commands asynchronously
+[[plugins]]
+repo = 'tpope/vim-dispatch'
+
+# arbitrary test runner
+[[plugins]]
+repo = 'janko-m/vim-test'
+depends = ['vim-dispatch']
+hook_add = '''
+nmap [test] <Nop>
+map <Leader>t [test]
+nmap <silent> [test]n :<C-u>TestNearest<CR>
+nmap <silent> [test]f :<C-u>TestFile<CR>
+nmap <silent> [test]s :<C-u>TestSuite<CR>
+nmap <silent> [test]l :<C-u>TestLast<CR>
+nmap <silent> [test]g :<C-u>TestVisit<CR>
+let g:test#strategy = 'neovim'
+let g:test#python#runner = 'nose'
+'''
+
+[[plugins]]
+repo = 'radenling/vim-dispatch-neovim'
+depends = ['vim-dispatch']
+
+# for grammar check by :GrammarousCheck command
+[[plugins]]
+repo = 'rhysd/vim-grammarous'
+
+# for opening URI in texts
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_add = '''
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+'''

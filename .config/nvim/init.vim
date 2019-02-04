@@ -41,7 +41,7 @@ colorscheme dracula
 set fileformats=unix,mac,dos
 
 " Messages in English
-language C
+" language C
 
 set smarttab
 "insert space when entered tab
@@ -119,9 +119,12 @@ nnoremap <C-]> g<C-]>
 nnoremap <Leader>p :bprevious<CR>
 nnoremap <Leader>n :bnext<CR>
 
-" markdownの折りたたみなし
-let g:vim_markdown_folding_disabled=0
+" shortcut for save and close
+nnoremap ,s :<C-u>w<CR>
+nnoremap ,w :<C-u>wq<CR>
+nnoremap ,q :<C-u>q<CR>
 
+set spelllang=en,cjk
 
 " for webpack build
 set backupcopy=yes
@@ -132,4 +135,8 @@ set backupcopy=yes
 " great
 set dictionary=/usr/share/dict/words
 
-
+" local settings
+let g:local_settings_file = $XDG_CONFIG_HOME . '/nvim/local_settings.vim'
+if filereadable(g:local_settings_file)
+    exec "source " . local_settings_file
+endif
