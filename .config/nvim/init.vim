@@ -124,9 +124,7 @@ nnoremap ,s :<C-u>w<CR>
 nnoremap ,w :<C-u>wq<CR>
 nnoremap ,q :<C-u>q<CR>
 
-" markdownの折りたたみなし
-let g:vim_markdown_folding_disabled=0
-
+set spelllang=en,cjk
 
 " fro webpack build
 set backupcopy=yes

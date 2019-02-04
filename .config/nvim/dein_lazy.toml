@@ -64,8 +64,12 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'honza/vim-snippets'
 
 [[plugins]]
-repo = 'tpope/vim-markdown'
+repo = 'gabrielelana/vim-markdown'
 on_ft = 'markdown'
+hook_post_source = '''
+  let g:markdown_include_jekyll_support = 0
+  let g:markdown_mapping_switch_status='<Leader>m'
+'''
 
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
