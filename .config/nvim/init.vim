@@ -123,5 +123,13 @@ nnoremap <Leader>n :bnext<CR>
 let g:vim_markdown_folding_disabled=0
 
 
-" fro webpack build
+" for webpack build
 set backupcopy=yes
+
+" dictionary option
+" words can be completed by <C-x><C-k> using the decllared word list
+" TODO: add thesaurus file https://github.com/Ron89/thesaurus_query.vim looks
+" great
+set dictionary=/usr/share/dict/words
+
+
