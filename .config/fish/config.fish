@@ -26,6 +26,9 @@ end
 status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
+# golang
+set -x GOPATH ~/go
+
 #neovim
 balias vi nvim
 
