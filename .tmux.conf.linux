@@ -1,0 +1,9 @@
+set-option -g default-shell /usr/bin/fish
+set-option -g default-command "exec /usr/bin/fish"
+
+# vi-mode settings
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "xsel -ip && xsel -op | xsel -ib"
+unbind -T copy-mode-vi Enter
+bind-key -T copy-mode-vi Enter send -X copy-pipe-and-cancel "xsel -ip && xsel -op | xsel -ib"
+
