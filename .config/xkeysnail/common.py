@@ -37,6 +37,11 @@ define_keymap(None, {
     K('Super-l'): Key.RIGHT
 }, "Vim-like cursor")
 
+#define_keymap(None, {
+#    Key.SEMICOLON: K("Shift-semicolon"),
+#    K("Shift-semicolon"): Key.SEMICOLON
+#}, "Swap Colon and Semi-Colon")
+
 define_keymap(re.compile('Pantheon-terminal'), {
     K('esc'): [K('left_alt'), K('esc')],
     K("Alt-c"): K("C-Shift-c"),

@@ -68,7 +68,7 @@ nnoremap <C-e> :NERDTreeToggle<CR>
 repo = 'itchyny/lightline.vim'
 hook_add = '''
 let g:lightline = {
-        \ 'colorscheme': 'Dracula',
+        \ 'colorscheme': 'dracula',
         \ 'mode_map': {'c': 'NORMAL'},
         \ 'active': {
                 \  'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath'], ['gitbranch']],
