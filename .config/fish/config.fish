@@ -26,6 +26,10 @@ end
 status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
+#utility
+alias urldecode "python -c \"import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))\""
+alias urlencode "python -c \"import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))\""
+
 #neovim
 balias vi nvim
 
