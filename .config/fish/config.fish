@@ -30,6 +30,9 @@ status --is-interactive; and source (pyenv virtualenv-init -|psub)
 alias urldecode "python -c \"import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))\""
 alias urlencode "python -c \"import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))\""
 
+# golang
+set -x GOPATH ~/go
+
 #neovim
 balias vi nvim
 
