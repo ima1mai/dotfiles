@@ -71,48 +71,58 @@ hook_post_source = '''
   let g:markdown_mapping_switch_status='<Leader>m'
 '''
 
+# generate table of contents by GenTocGFM
 [[plugins]]
-repo = 'mhartington/nvim-typescript'
-on_i  = 1
-on_ft = 'typescript'
+repo = 'mzlogin/vim-markdown-toc'
+on_ft = 'markdown'
 
+
+#[[plugins]]
+#repo = 'mhartington/nvim-typescript'
+#on_i  = 1
+#on_ft = 'typescript'
+
+#[[plugins]]
+#repo = 'autozimu/LanguageClient-neovim'
+#rev  = 'next'
+#build = './install.sh'
+#on_ft = 'java'
+#hook_source = '''
+#  let g:LanguageClient_autoStart = 0
+#  let g:LanguageClient_diagnosticsEnable = 1 
+#  let l:jdt_repo_path = '~/eclipse/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository'
+#  let l:jdt_lsp_data_dir = '~/.config/nvim/other_tools/jdt-data'
+#  let l:workspace_path = '/Users/aa367037/Dev/sbsep_workspace_for_vim'
+#  let g:LanguageClient_serverCommands = {
+#    \ 'java': ['java',
+#      \ '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
+#      \ '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+#      \ '-Dosgi.bundles.defaultStartLevel=4',
+#      \ '-Declipse.product=org.eclipse.jdt.ls.core.product',
+#      \ '-Dlog.level=ALL',
+#      \ '-noverify',
+#      \ '-Xmx1G',
+#      \ '-jar',
+#      \ expand(l:jdt_repo_path) . '/plugins/org.eclipse.equinox.launcher_1.5.0.v20180207-1446.jar',
+#      \ '-configuration',
+#      \ expand(l:jdt_repo_path) . '/config_mac',
+#      \ '-data',
+#      \ l:workspace_path]
+#    \ }
+#nmap [LanguageClient] <Nop>
+#map <Leader>e [LanguageClient]
+#nmap [LanguageClient]h :call LanguageClient#textDocument_hover()<CR>
+#nmap [LanguageClient]d :call LanguageClient#textDocument_definition()<CR>
+#nmap [LanguageClient]rn :call LanguageClient#textDocument_rename()<CR>
+#nmap [LanguageClient]s :call LanguageClient#textDocument_documentSymbol() <CR> :lopen <CR>
+#nmap [LanguageClient]r :call LanguageClient#textDocument_references() <CR> :lopen <CR>
+#nmap [LanguageClient]= :call LanguageClient#textDocument_formatting() <CR>
+#'''
+#hook_post_source = '''
+#  "call LanguageClient#startServer()
+#'''
+#
+#
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev  = 'next'
-build = './install.sh'
-on_ft = 'java'
-hook_source = '''
-  let g:LanguageClient_autoStart = 0
-  let g:LanguageClient_diagnosticsEnable = 1 
-  let l:jdt_repo_path = '~/eclipse/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository'
-  let l:jdt_lsp_data_dir = '~/.config/nvim/other_tools/jdt-data'
-  let l:workspace_path = '/Users/aa367037/Dev/sbsep_workspace_for_vim'
-  let g:LanguageClient_serverCommands = {
-    \ 'java': ['java',
-      \ '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
-      \ '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-      \ '-Dosgi.bundles.defaultStartLevel=4',
-      \ '-Declipse.product=org.eclipse.jdt.ls.core.product',
-      \ '-Dlog.level=ALL',
-      \ '-noverify',
-      \ '-Xmx1G',
-      \ '-jar',
-      \ expand(l:jdt_repo_path) . '/plugins/org.eclipse.equinox.launcher_1.5.0.v20180207-1446.jar',
-      \ '-configuration',
-      \ expand(l:jdt_repo_path) . '/config_mac',
-      \ '-data',
-      \ l:workspace_path]
-    \ }
-nmap [LanguageClient] <Nop>
-map <Leader>e [LanguageClient]
-nmap [LanguageClient]h :call LanguageClient#textDocument_hover()<CR>
-nmap [LanguageClient]d :call LanguageClient#textDocument_definition()<CR>
-nmap [LanguageClient]rn :call LanguageClient#textDocument_rename()<CR>
-nmap [LanguageClient]s :call LanguageClient#textDocument_documentSymbol() <CR> :lopen <CR>
-nmap [LanguageClient]r :call LanguageClient#textDocument_references() <CR> :lopen <CR>
-nmap [LanguageClient]= :call LanguageClient#textDocument_formatting() <CR>
-'''
-hook_post_source = '''
-  "call LanguageClient#startServer()
-'''
-
+repo = 'mustache/vim-mustache-handlebars'
+on_ft = 'mustache'
