@@ -1,0 +1,43 @@
+
+let mapleader = " "
+
+set number                        " line numbers
+
+set hlsearch                      " highlight search occurrences
+set ignorecase                    " ignore case in search patterns
+set smartcase                     " no ignore case when pattern is uppercase
+set incsearch                     " show search results while typing
+set wrapscan                      " searches wrap around the end of the file
+
+set gdefault                      " substitute all occurrences in line per default
+set history=10000                 " keep x lines of command line history
+set scrolloff=5 sidescrolloff=10  " keep some lines before and after the cursor visible
+set clipboard=unnamedplus,unnamed " integrate with system clipboard
+set clipboard+=ideaput
+
+" enable vim-surround emulation
+set surround
+
+" edit ideavim config
+nnoremap <leader>vv :e ~/.ideavimrc<CR>
+nnoremap <leader>vr :source ~/.ideavimrc<CR>
+
+" KJump (easy-motion)
+map [easymotion] <Nop>
+map <Leader>s [easymotion]
+nmap [easymotion]f :action KJumpAction<CR>
+nmap [easymotion]w :action KJumpAction.Word1<CR>
+nmap [easymotion]l :action KJumpAction.Line<CR>
+
+" clear search highlighting
+nnoremap <leader>/ :nohls<return><esc>
+
+" tab move
+nnoremap L :action NextTab<CR>
+nnoremap H :action PreviousTab<CR>
+
+" save and close
+nnoremap ,s :<C-u>w<CR>
+nnoremap ,w :<C-u>wq<CR>
+nnoremap ,q :<C-u>q<CR>
+
