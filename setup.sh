@@ -15,3 +15,8 @@ ln -sf "$(pwd)/.config/nvim/init.vim" ~/.config/nvim/init.vim
 ln -sf "$(pwd)/.config/nvim/dein.toml" ~/.config/nvim/dein.toml
 ln -sf "$(pwd)/.config/nvim/dein_lazy.toml" ~/.config/nvim/dein_lazy.toml
 
+# ideavim
+ln -sf "$(pwd)/.ideavimrc" ~/.ideavimrc
+
+# starship
+ln -sf "$(pwd)/.config/starship.toml" ~/.config/starship.toml
