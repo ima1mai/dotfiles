@@ -1,32 +1,32 @@
 
-prompt_order = [
-    "username",
-    "hostname",
-    "directory",
-    "git_branch",
-    "git_state",
-    "git_status",
-    "python",
-    "kubernetes",
-    "time",
-    "package",
-    "nodejs",
-    "golang",
-    "java",
-    "dotnet",
-    "ruby",
-    "rust",
-    "nix_shell",
-    "conda",
-    "memory_usage",
-    "aws",
-    "env_var",
-    "cmd_duration",
-    "line_break",
-    "jobs",
-    "battery",
-    "character",
-]
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$python\
+$kubernetes\
+$time\
+$package\
+$nodejs\
+$golang\
+$java\
+$dotnet\
+$ruby\
+$rust\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$env_var\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$character\
+"""
 
 [python]
 symbol = " "
