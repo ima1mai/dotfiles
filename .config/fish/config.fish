@@ -10,19 +10,18 @@ set SHELL (which fish)
 set -x LANG en_US.UTF-8 
 set -x LC_ALL en_US.UTF-8    
 
-# Powerline
-#set -g theme_display_k8s_context yes
-#set -g theme_display_virtualenv no
-#set -g theme_color_scheme dracula
-#set -g theme_project_dir_length 1
-
 # fzf
-set FZF_LEGACY_KEYBINDINGS 0
+set FZF_DEFAULT_OPTS "--height 40%"
+set FZF_PREVIEW_DIR_CMD "ls"
+set FZF_PREVIEW_FILE_CMD "head -n 10"
+set FZF_TMUX_HEIGHT "40%"
 
 #pyenv
 if test (uname) = "Linux"
     set -x PATH $HOME/".pyenv/bin" $PATH
 end
+set -x PYENV_ROOT $HOME/.pyenv
+set -x PATH  $PYENV_ROOT/shims $PATH
 status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
@@ -32,6 +31,7 @@ alias urlencode "python -c \"import sys, urllib.parse as ul; print(ul.quote_plus
 
 # golang
 set -x GOPATH ~/go
+set -x PATH $HOME/"go/bin" $PATH
 
 #neovim
 balias vi nvim
@@ -40,11 +40,19 @@ balias vi nvim
 balias k 'kubectl'
 balias kube 'kubectl'
 balias kc 'kubectx'
+balias kgp 'kubectl get pod'
+balias kg 'kubectl get'
+balias kd 'kubectl describe'
+balias kdp 'kubectl describe pod'
+balias ogp 'oc get pod'
+balias og 'oc get'
+balias od 'oc describe'
+balias odp 'oc describe pod'
 
 #git
 balias gp 'git pull'
 balias gc 'git commit'
-balias ga 'git add .'
+balias ga 'git add'
 balias gb 'git branch'
 balias gst 'git status'
 
@@ -54,8 +62,25 @@ balias lctr 'colorls -lA --sd'
 balias lct 'colorls --tree --git-status'
 balias cls 'colorls'
 
+#ls
+balias l 'ls -ltrh'
+balias la 'ls -ltrha'
+
+# alternative of ghq look
+balias gl 'cd (ghq list -p | fzf)'
+
 set -x XDG_CONFIG_HOME ~/.config
+# local scripts
 set -q local_config; or set local_config $XDG_CONFIG_HOME/fish/config_local.fish
 if test -e $local_config
     source $local_config
 end
+
+set -x PATH $HOME/"bin" $PATH
+
+# asdf
+if test -e /usr/local/opt/asdf/asdf.fish
+    source /usr/local/opt/asdf/asdf.fish
+end
+
+starship init fish | source
