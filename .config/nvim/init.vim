@@ -72,11 +72,11 @@ set showmatch
 "set laststatus=2
 
 " swap colon and semicolon
-let uname = systemlist('uname')
-if uname[0] == "Linux"
-    nnoremap ; :
-    nnoremap : ;
-endif
+" let uname = systemlist('uname')
+" if uname[0] == "Linux"
+"     nnoremap ; :
+"     nnoremap : ;
+" endif
 
 "タイトル表示"
 set title
