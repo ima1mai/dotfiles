@@ -7,8 +7,13 @@ end
 
 #shell
 set SHELL (which fish)
-set -x LANG en_US.UTF-8 
-set -x LC_ALL en_US.UTF-8    
+set -x LANG en_US.UTF-8
+set -x LC_ALL en_US.UTF-8
+
+# homebrew
+if test (uname) = "Darwin"
+    eval (/opt/homebrew/bin/brew shellenv)
+end
 
 # fzf
 set FZF_DEFAULT_OPTS "--height 40%"
