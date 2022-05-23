@@ -1,28 +1,28 @@
 # completion
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_i = 1
-hook_source='''
-  let g:deoplete#enable_at_startup = 1
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-        \ neosnippet#expandable_or_jumpable() ?
-        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-'''
-hook_post_source = '''
-let g:deoplete#omni_patterns = {}
-'''
-
-# python completion
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_i = 1
-on_ft = 'python'
-
-# javascript completion
-[[plugins]]
-repo = 'carlitux/deoplete-ternjs'
-on_i = 1
-on_ft = 'javascript'
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# on_i = 1
+# hook_source='''
+#   let g:deoplete#enable_at_startup = 1
+#   inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+#         \ neosnippet#expandable_or_jumpable() ?
+#         \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+# '''
+# hook_post_source = '''
+# let g:deoplete#omni_patterns = {}
+# '''
+# 
+# # python completion
+# [[plugins]]
+# repo = 'zchee/deoplete-jedi'
+# on_i = 1
+# on_ft = 'python'
+# 
+# # javascript completion
+# [[plugins]]
+# repo = 'carlitux/deoplete-ternjs'
+# on_i = 1
+# on_ft = 'javascript'
 
 # python virtualenv enable in vim
 [[plugins]]

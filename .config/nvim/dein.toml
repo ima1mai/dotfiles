@@ -77,7 +77,7 @@ let g:lightline = {
                 \            [ 'ale', 'fileformat', 'fileencoding', 'filetype'] ] 
                 \},
         \ 'component_function': {
-                \   'gitbranch': 'fugitive#head',
+                \   'gitbranch': 'FugitiveHead',
                 \    'ale': 'ALEGetStatusLine',
                 \   'filetype': 'MyFiletype',
                 \   'fileformat': 'MyFileformat'
@@ -97,40 +97,17 @@ endfunction
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-depends = ['neomru.vim']
-on_event = 'BufRead'
-hook_add = '''
-nmap [denite] <Nop>
-map <Leader>d [denite]
-" reference: https://qiita.com/okamos/items/4e1665ecd416ef77df7c
-nnoremap <silent> [denite]f :<C-u>Denite filetype<CR>
-nnoremap <silent> [denite]p :<C-u>Denite file_rec<CR>
-nnoremap <silent> [denite]v :<C-u>Denite -default-action=vsplit file_rec<CR>
-nnoremap <silent> [denite]s :<C-u>Denite -default-action=split file_rec<CR>
-nnoremap <silent> [denite]t :<C-u>Denite -default-action=tabopen file_rec<CR>
-nnoremap <silent> [denite]j :<C-u>Denite line<CR>
-nnoremap <silent> [denite]g :<C-u>Denite grep<CR>
-nnoremap <silent> [denite]] :<C-u>DeniteCursorWord grep<CR>
-nnoremap <silent> [denite]u :<C-u>Denite file_mru<CR>
-nnoremap <silent> [denite]y :<C-u>Denite neoyank<CR>
-nnoremap <silent> [denite]r :<C-u>Denite -resume<CR>
-nnoremap <silent> [denite]; :<C-u>Denite -resume -immediately -select=+1<CR>
-nnoremap <silent> [denite]- :<C-u>Denite -resume -immediately -select=-1<CR>
-nnoremap <silent> [denite]d :<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/.ghq/github.com/ryom1m1/dotfiles']}])<CR>
-nnoremap ml :<C-p>call denite#start([{'name': 'file_rec', 'args': [g:memolist_path]}])<CR>
-'''
-hook_post_source = '''
-call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
-" Ag command on grep source
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'default_opts',
-		\ ['-i', '--vimgrep'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+
+hook_add='''
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 '''
 
 [[plugins]]
