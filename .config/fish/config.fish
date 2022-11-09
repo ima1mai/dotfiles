@@ -20,6 +20,9 @@ set FZF_DEFAULT_OPTS "--height 40%"
 set FZF_PREVIEW_DIR_CMD "ls"
 set FZF_PREVIEW_FILE_CMD "head -n 10"
 set FZF_TMUX_HEIGHT "40%"
+# Open the selected file with the $EDITOR.
+# set -gx $EDITOR "nvim" # or "vim", or "code", etc.
+set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
 
 #pyenv
 if test (uname) = "Linux"
@@ -35,8 +38,9 @@ alias urldecode "python -c \"import sys, urllib.parse as ul; print(ul.unquote_pl
 alias urlencode "python -c \"import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))\""
 
 # golang
-set -x GOPATH ~/go
-set -x PATH $HOME/"go/bin" $PATH
+# ~/go is the default GOPATH
+# set -x GOPATH ~/go
+# set -x PATH $HOME/"go/bin" $PATH
 
 #neovim
 balias vi nvim
@@ -61,15 +65,30 @@ balias ga 'git add'
 balias gb 'git branch'
 balias gst 'git status'
 
-# colorls
-balias lc 'colorls -lA --sd -t -r'
-balias lctr 'colorls -lA --sd'
-balias lct 'colorls --tree --git-status'
-balias cls 'colorls'
+# ls extentions
+if type -q exa
+    # exa
+    balias ls 'exa --icons'
+    balias ll 'exa --long --header --sort modified --icons'
+    balias l 'll'
+    balias la 'exa --long --header --sort modified --icons --all'
+else if type -q colorls
+    # colorls
+    balias lc 'colorls -lA --sd -t -r'
+    balias lctr 'colorls -lA --sd'
+    balias lct 'colorls --tree --git-status'
+    balias cls 'colorls'
+else
+    #ls
+    balias l 'ls -ltrh'
+    balias la 'ls -ltrha'
+end
 
-#ls
-balias l 'ls -ltrh'
-balias la 'ls -ltrha'
+# watch command alternative
+if type -q viddy
+    # viddy
+    balias watch 'viddy'
+end
 
 # alternative of ghq look
 balias gl 'cd (ghq list -p | fzf)'
@@ -84,8 +103,8 @@ end
 set -x PATH $HOME/"bin" $PATH
 
 # asdf
-if test -e /usr/local/opt/asdf/asdf.fish
-    source /usr/local/opt/asdf/asdf.fish
+if test -e (brew --prefix asdf)/libexec/asdf.fish
+    source (brew --prefix asdf)/libexec/asdf.fish
 end
 
 starship init fish | source

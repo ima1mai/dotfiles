@@ -8,7 +8,7 @@ ln -sf "$(pwd)/.tmux.conf.macos" ~/.tmux.conf.macos
 # fish
 ln -sf "$(pwd)/.config/fish/functions/cp_history_clipboard.fish" ~/.config/fish/functions/cp_history_clipboard.fish
 ln -sf "$(pwd)/.config/fish/config.fish" ~/.config/fish/config.fish
-ln -sf "$(pwd)/.config/fish/fishfile" ~/.config/fish/fishfile
+ln -sf "$(pwd)/.config/fish/fish_plugins" ~/.config/fish/fish_plugins
 
 # nvim
 ln -sf "$(pwd)/.config/nvim/init.vim" ~/.config/nvim/init.vim
